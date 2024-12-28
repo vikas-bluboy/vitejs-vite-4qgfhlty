@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import DynamicTablesUI from './components/DynamicTablesUI'
+import React from 'react'
+import 'primeicons/primeicons.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import PageSchemas from './components/Pages/PageSchemas'
+import { tenantName } from './services/apiService';
+import 'primereact/resources/themes/saga-blue/theme.css';  // Choose a theme
+import 'primereact/resources/primereact.min.css';  // Core CSS
+import 'primeicons/primeicons.css';  // Icons CSS
+import { AuthProvider, RequireAuth } from './components/AuthProvider'
+import { Login } from './components/Login'
+import { VerifyOTP } from './components/VerifyOTP';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/verifyOtp" element={<VerifyOTP />} /> */}
+        <Route
+          path="/verifyOtp"
+          element={
+            <RequireAuth>
+              <VerifyOTP />
+            </RequireAuth>
+          }
+        />
+        <Route path="/dynamic-table/:pageTitle" element={
+          <RequireAuth>
+            <DynamicTablesUI tenantName={tenantName} />
+          </RequireAuth>
+        } />
+        <Route path="/pageSchemas" element={
+          <RequireAuth>
+            <PageSchemas tenantName={tenantName} />
+          </RequireAuth>
+        } />
+        {/* <Route path="/dynamic-table" element={<DynamicTablesUI tenantName={tenantName} />} /> */}
+      </Routes>
+    </AuthProvider>
   )
 }
-
 export default App

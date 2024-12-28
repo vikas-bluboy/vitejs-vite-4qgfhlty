@@ -1,0 +1,52 @@
+[
+  {
+    "Player_Kyc_ID": 12345,
+    "Player_Name": "John Doe",
+    "Age": 28,
+    "Team": "Blue Warriors",
+    "Position": "Forward",
+    "Matches_Played": 100,
+    "Goals_Scored": 30,
+    "Assists": 20
+  },
+  {
+    "Player_Kyc_ID": 12346,
+    "Player_Name": "Jane Smith",
+    "Age": 25,
+    "Team": "Red Dragons",
+    "Position": "Midfielder",
+    "Matches_Played": 90,
+    "Goals_Scored": 25,
+    "Assists": 30
+  },
+  {
+    "Player_Kyc_ID": 12347,
+    "Player_Name": "Mike Johnson",
+    "Age": 30,
+    "Team": "Green Giants",
+    "Position": "Defender",
+    "Matches_Played": 110,
+    "Goals_Scored": 10,
+    "Assists": 15
+  },
+  {
+    "Player_Kyc_ID": 12348,
+    "Player_Name": "Emily Davis",
+    "Age": 22,
+    "Team": "Yellow Tigers",
+    "Position": "Goalkeeper",
+    "Matches_Played": 80,
+    "Goals_Scored": 5,
+    "Assists": 10
+  },
+  {
+    "Player_Kyc_ID": 12349,
+    "Player_Name": "Chris Lee",
+    "Age": 27,
+    "Team": "Purple Panthers",
+    "Position": "Forward",
+    "Matches_Played": 95,
+    "Goals_Scored": 40,
+    "Assists": 25
+  }
+]
